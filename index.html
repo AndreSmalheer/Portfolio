@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- mobile -->
+    <div id="mobile-menu">
+      <ul>
+        <li>h1</li>
+        <li>h1</li>
+        <li>h1</li>
+        <li>h1</li>
+      </ul>
+    </div>
+    <div id="mobile-header">
+      <h1>André Smalheer</h1>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <!-- desktop -->
+    <div id="header">
+      <h1>André Smalheer</h1>
+      <ul>
+        <li>h1</li>
+        <li>h1</li>
+        <li>h1</li>
+        <li>h1</li>
+      </ul>
+    </div>
+
+    <div id="main-container">
+      <div class="title-wrapper">
+        <h1>André – Creative Software Developer</h1>
+        <h2>Turning ideas into smooth, usable products</h2>
+      </div>
+
+      <img src="placeholder.png" />
+    </div>
+  </body>
+
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
+      mobileMenu.classList.toggle("show");
+    });
+  </script>
+</html>
