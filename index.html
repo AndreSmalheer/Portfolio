@@ -12,21 +12,23 @@
   </head>
   <body>
     <!-- mobile -->
-    <div id="mobile-menu">
-      <ul>
-        <li>h1</li>
-        <li>h1</li>
-        <li>h1</li>
-        <li>h1</li>
-      </ul>
-    </div>
-    <div id="mobile-header">
-      <h1>André Smalheer</h1>
+    <div id="mobile_container">
+      <div id="mobile-menu">
+        <ul>
+          <li>h1</li>
+          <li>h1</li>
+          <li>h1</li>
+          <li>h1</li>
+        </ul>
+      </div>
+      <div id="mobile-header">
+        <h1>André Smalheer</h1>
 
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </div>
 
@@ -50,7 +52,77 @@
       <img src="placeholder.png" />
     </div>
 
-    <div id="projects"></div>
+    <section id="projects" class="projects-section">
+      <h2 class="projects-title">Projects</h2>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <div
+            class="project-media"
+            style="
+              background-image: url('https://picsum.photos/600/400?random=1');
+            "
+          >
+            <div class="media-overlay">
+              <span class="project-badge">Featured</span>
+            </div>
+          </div>
+
+          <div class="project-body">
+            <h3 class="project-title">Voyager UI</h3>
+            <p class="project-desc">
+              A sleek media-player interface designed for long-duration space
+              trips — focused on usability and low-distraction UX.
+            </p>
+            <div class="project-meta">
+              <div class="tags">
+                <span class="tag">React</span>
+                <span class="tag">UI</span>
+              </div>
+              <a
+                class="project-cta"
+                href="#"
+                aria-label="Open Voyager UI project"
+                >View →</a
+              >
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div
+            class="project-media"
+            style="
+              background-image: url('https://picsum.photos/600/400?random=2');
+            "
+          >
+            <div class="media-overlay"></div>
+          </div>
+
+          <div class="project-body">
+            <h3 class="project-title">Mars Guide</h3>
+            <p class="project-desc">
+              Informational dashboard showing Mars facts, mission timelines and
+              interactive 3D surface maps.
+            </p>
+            <div class="project-meta">
+              <div class="tags">
+                <span class="tag">Vanilla JS</span>
+                <span class="tag">Canvas</span>
+              </div>
+              <a
+                class="project-cta"
+                href="#"
+                aria-label="Open Mars Guide project"
+                >View →</a
+              >
+            </div>
+          </div>
+        </article>
+
+        <!-- duplicate project-card blocks as needed -->
+      </div>
+    </section>
   </body>
 
   <script>
