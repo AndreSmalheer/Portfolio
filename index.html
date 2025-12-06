@@ -9,16 +9,24 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
     <!-- mobile -->
     <div id="mobile_container">
       <div id="mobile-menu">
         <ul>
-          <li>h1</li>
-          <li>h1</li>
-          <li>h1</li>
-          <li>h1</li>
+          <li><a href="#main-container">Home</a></li>
+          <li><a href="#about_me_container">About Me</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
       <div id="mobile-header">
@@ -36,10 +44,10 @@
     <div id="header">
       <h1>André Smalheer</h1>
       <ul>
-        <li>h1</li>
-        <li>h1</li>
-        <li>h1</li>
-        <li>h1</li>
+        <li><a href="#main-container">Home</a></li>
+        <li><a href="#about_me_container">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
 
@@ -52,79 +60,73 @@
       <img src="placeholder.png" />
     </div>
 
-    <section id="projects" class="projects-section">
-      <h2 class="projects-title">Projects</h2>
+    <div id="about_me_container">
+      <img src="placeholder.png" />
 
-      <div class="projects-grid">
-        <article class="project-card">
-          <div
-            class="project-media"
-            style="
-              background-image: url('https://picsum.photos/600/400?random=1');
-            "
-          >
-            <div class="media-overlay">
-              <span class="project-badge">Featured</span>
-            </div>
-          </div>
-
-          <div class="project-body">
-            <h3 class="project-title">Voyager UI</h3>
-            <p class="project-desc">
-              A sleek media-player interface designed for long-duration space
-              trips — focused on usability and low-distraction UX.
-            </p>
-            <div class="project-meta">
-              <div class="tags">
-                <span class="tag">React</span>
-                <span class="tag">UI</span>
-              </div>
-              <a
-                class="project-cta"
-                href="#"
-                aria-label="Open Voyager UI project"
-                >View →</a
-              >
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div
-            class="project-media"
-            style="
-              background-image: url('https://picsum.photos/600/400?random=2');
-            "
-          >
-            <div class="media-overlay"></div>
-          </div>
-
-          <div class="project-body">
-            <h3 class="project-title">Mars Guide</h3>
-            <p class="project-desc">
-              Informational dashboard showing Mars facts, mission timelines and
-              interactive 3D surface maps.
-            </p>
-            <div class="project-meta">
-              <div class="tags">
-                <span class="tag">Vanilla JS</span>
-                <span class="tag">Canvas</span>
-              </div>
-              <a
-                class="project-cta"
-                href="#"
-                aria-label="Open Mars Guide project"
-                >View →</a
-              >
-            </div>
-          </div>
-        </article>
-
-        <!-- duplicate project-card blocks as needed -->
+      <div id="text_container">
+        <h1>About Me</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
       </div>
-    </section>
-  </body>
+    </div>
 
+    <div id="projects">
+      <div id="project_grid">
+        <div class="project"></div>
+        <div class="project"></div>
+        <div class="project"></div>
+      </div>
+
+      <h1>Discover More</h1>
+    </div>
+
+    <div id="contact">
+      <div>
+        <h1>Let's Work Together</h1>
+        <h2>
+          I'm excited to collaborate on innovative projects. Reach out to
+          discuss how we can create something amazing together!
+        </h2>
+
+        <div id="social-icons">
+          <a href="https://github.com/AndreSmalheer" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/andr%C3%A9-smalheer-579b4239b/"
+            target="_blank"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <footer id="footer">
+      <div id="footer-content">
+        <h2>André Smalheer</h2>
+        <p>
+          Creative Software Developer • Building intuitive digital experiences
+        </p>
+
+        <ul id="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">About Me</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+
+        <p id="copyright">© 2025 André Smalheer — All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
   <script>
     const hamburger = document.querySelector(".hamburger");
     const mobileMenu = document.getElementById("mobile-menu");
