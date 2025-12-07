@@ -158,10 +158,30 @@
   <script>
     const hamburger = document.querySelector(".hamburger");
     const mobileMenu = document.getElementById("mobile-menu");
+    const mobileManueLinks = mobileMenu.querySelectorAll("a");
+    const body = document.body;
 
     hamburger.addEventListener("click", () => {
       hamburger.classList.toggle("active");
       mobileMenu.classList.toggle("show");
+    });
+
+    mobileManueLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        mobileMenu.classList.remove("show");
+      });
+    });
+
+    body.addEventListener("click", (e) => {
+      if (
+        !mobileMenu.contains(e.target) &&
+        !hamburger.contains(e.target) &&
+        mobileMenu.classList.contains("show")
+      ) {
+        hamburger.classList.remove("active");
+        mobileMenu.classList.remove("show");
+      }
     });
   </script>
 </html>
