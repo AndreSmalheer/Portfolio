@@ -6,6 +6,11 @@
     <title>André Smalheer - Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="images/logo.png" />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- mobile -->
@@ -13,6 +18,14 @@
 
     <!-- desktop -->
     <div id="desktop_container"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000, // animation duration in ms
+        once: true, // whether animation should happen only once
+      });
+    </script>
   </body>
   <script>
     async function includeHTML(containerId, url) {
