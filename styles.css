@@ -23,14 +23,28 @@ body {
   padding: 0 clamp(1rem, 3vw, 2rem);
   color: black;
 
-  & h1 {
-    margin: 0;
-    font-size: clamp(1.5rem, 3vw, 1.5rem);
-    font-weight: bold;
-    white-space: nowrap;
+  & #logo-title-container {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 2vw, 20px);
 
-    &:hover {
-      cursor: default;
+    & img {
+      height: clamp(30px, 5vw, 50px);
+      width: auto;
+      align-self: left;
+    }
+
+    & h1 {
+      margin: 0;
+      font-size: clamp(1.5rem, 3vw, 1.5rem);
+      font-weight: bold;
+      white-space: nowrap;
+      margin-left: 0;
+      padding-left: 0;
+
+      &:hover {
+        cursor: default;
+      }
     }
   }
 
@@ -145,6 +159,25 @@ body {
     margin-right: clamp(1rem, 10vw, 20vw);
     height: 80px;
 
+    & #logo-title-container {
+      display: flex;
+      align-items: center;
+      gap: clamp(10px, 2vw, 20px);
+
+      & img {
+        height: clamp(30px, 5vw, 50px);
+        width: auto;
+        align-self: left;
+      }
+
+      & h1 {
+        margin: 0;
+        font-size: clamp(1.5rem, 3vw, 1.5rem);
+        font-weight: bold;
+        white-space: nowrap;
+      }
+    }
+
     .hamburger {
       display: flex;
       flex-direction: column;
@@ -159,17 +192,6 @@ body {
         background: #000;
         border-radius: 2px;
         transition: 0.3s;
-      }
-    }
-
-    & h1 {
-      margin: 0;
-      font-size: clamp(1.5rem, 3vw, 1.5rem);
-      font-weight: bold;
-      white-space: nowrap;
-
-      &:hover {
-        cursor: default;
       }
     }
   }
