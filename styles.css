@@ -407,7 +407,7 @@ body {
   & .project {
     width: clamp(300px, 40vw, 400px);
     aspect-ratio: 1 / 1;
-    background: #f1cb96;
+    background: #484848;
     border-radius: 12px;
 
     &:hover {
