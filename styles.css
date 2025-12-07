@@ -179,8 +179,8 @@ body {
     position: absolute;
     top: 0;
     left: -250px;
-    width: clamp(150px, 8vw, 300px);
-    background: gray;
+    width: clamp(160px, 10vw, 400px);
+    background-color: #e0e0e0;
     list-style: none;
     padding: 1rem;
     border-radius: 8px;
@@ -192,6 +192,7 @@ body {
     z-index: 9999;
     opacity: 0;
     transition: 0.4s ease-out;
+    border-right: 2px solid #ccc;
 
     & a {
       text-decoration: none;
@@ -549,7 +550,7 @@ body {
   #main-container {
     flex-direction: column;
     justify-content: flex-start;
-    margin-top: 60px;
+    margin-top: clamp(40px, 5vw, 80px);
     height: fit-content;
 
     & .title-wrapper {
