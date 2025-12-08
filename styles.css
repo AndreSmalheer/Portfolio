@@ -402,6 +402,11 @@ body {
     max-width: 80%;
     margin-top: 5px;
 
+    & a {
+      text-decoration: none;
+      color: inherit;
+    }
+
     &:hover {
       opacity: 0.85;
       transform: translateY(-1px);
