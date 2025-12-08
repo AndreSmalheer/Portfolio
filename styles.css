@@ -373,6 +373,8 @@ body {
     object-fit: cover;
     margin-bottom: 0;
     border-radius: 4px 4px 0 0;
+    transition: transform 0.3s ease;
+    transform-origin: bottom center;
   }
 
   & h2 {
@@ -419,10 +421,15 @@ body {
     border-radius: 4px;
     text-align: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
 
     &:hover {
       transform: translateY(-4px);
       cursor: pointer;
+
+      img {
+        transform: scale(1.05);
+      }
     }
   }
 }
@@ -484,7 +491,7 @@ body {
 }
 
 #skills_container {
-  margin-top: clamp(5rem, 8vw, 10rem);
+  margin-top: clamp(9rem, 15vw, 20rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -519,7 +526,7 @@ body {
       transition: transform 0.2s ease, box-shadow 0.2s ease;
 
       &:hover {
-        cursor: default;
+        cursor: pointer;
         transform: translateY(-4px);
       }
     }
