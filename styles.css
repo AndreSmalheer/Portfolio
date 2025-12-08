@@ -400,6 +400,7 @@ body {
     margin-bottom: 2rem;
     margin: 0 auto;
     max-width: 80%;
+    margin-top: 5px;
 
     &:hover {
       opacity: 0.85;
@@ -417,11 +418,12 @@ body {
   & .project {
     width: clamp(300px, 40vw, 420px);
     aspect-ratio: 1 / 1;
-    background: #484848;
+    background: #f2e2c1;
     border-radius: 4px;
     text-align: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     overflow: hidden;
+    box-shadow: 0 4px 6px rgba(205, 127, 50, 0.4);
 
     &:hover {
       transform: translateY(-4px);
@@ -517,7 +519,29 @@ body {
     padding: 2rem 0;
     box-sizing: border-box;
 
+    & .tooltip {
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: #111;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 14px;
+      opacity: 0;
+      pointer-events: none;
+      white-space: normal;
+      width: max-content;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      text-align: center;
+
+      transition: opacity 0.3s ease, transform 0.25s ease;
+    }
+
     & > div {
+      position: relative;
       padding: 2rem 1.5rem;
       display: flex;
       flex-direction: column;
@@ -528,6 +552,11 @@ body {
       &:hover {
         cursor: pointer;
         transform: translateY(-4px);
+
+        & .tooltip {
+          opacity: 1;
+          transform: translateX(-50%) translateY(-5px);
+        }
       }
     }
 
