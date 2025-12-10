@@ -3,7 +3,23 @@ export async function includeHTML(containerId, url) {
     const response = await fetch(url);
     if (!response.ok) throw new Error(`Cannot load ${url}: ${response.status}`);
     const html = await response.text();
-    document.getElementById(containerId).insertAdjacentHTML("beforeend", html);
+
+    const container = document.getElementById(containerId);
+    container.insertAdjacentHTML("beforeend", html);
+
+    const scripts = container.querySelectorAll("script");
+    scripts.forEach((script) => {
+      const newScript = document.createElement("script");
+      newScript.type = "module";
+
+      if (script.src) {
+        newScript.src = script.src;
+      } else {
+        newScript.textContent = script.textContent;
+      }
+      document.body.appendChild(newScript);
+      document.body.removeChild(newScript);
+    });
   } catch (err) {
     console.error(err);
   }
