@@ -367,6 +367,10 @@ body {
   display: flex;
   flex-direction: column;
 
+  & a {
+    text-decoration: none;
+  }
+
   & img {
     width: 100%;
     height: 60%;
