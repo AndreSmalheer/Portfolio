@@ -1,26 +1,88 @@
-<div id="contact">
-  <div data-aos="fade-up" data-aos-duration="1000">
-    <h1 data-aos="fade-down" data-aos-duration="1000">Let's Work Together</h1>
-    <h2 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-      I'm excited to collaborate on innovative projects. Reach out to discuss
-      how we can create something amazing together!
-    </h2>
+<div data-aos="fade-up" data-aos-duration="1000">
+  <h1 data-aos="fade-down" data-aos-duration="1000">Let's Work Together</h1>
+  <h2 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+    I'm excited to collaborate on innovative projects. Reach out to discuss how
+    we can create something amazing together!
+  </h2>
 
-    <div
-      id="social-icons"
-      data-aos="zoom-in"
-      data-aos-duration="1000"
-      data-aos-delay="400"
+  <div
+    id="social-icons"
+    data-aos="zoom-in"
+    data-aos-duration="1000"
+    data-aos-delay="400"
+  >
+    <a href="https://github.com/AndreSmalheer" target="_blank">
+      <i class="fab fa-github"></i>
+    </a>
+    <a
+      href="https://www.linkedin.com/in/andr%C3%A9-smalheer-579b4239b/"
+      target="_blank"
     >
-      <a href="https://github.com/AndreSmalheer" target="_blank">
-        <i class="fab fa-github"></i>
-      </a>
-      <a
-        href="https://www.linkedin.com/in/andr%C3%A9-smalheer-579b4239b/"
-        target="_blank"
-      >
-        <i class="fab fa-linkedin"></i>
-      </a>
-    </div>
+      <i class="fab fa-linkedin"></i>
+    </a>
   </div>
 </div>
+
+<style>
+  #contact {
+    width: 100%;
+    height: fit-content;
+    padding-top: clamp(5rem, 10vw, 12rem);
+    padding-left: clamp(1.5rem, 5vw, 5rem);
+
+    & h1,
+    & h2 {
+      margin: 0;
+      padding: 0;
+      font-weight: bold;
+      line-height: 1.3;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    & h1 {
+      font-size: clamp(1.5rem, 4vw, 3rem);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    & h2 {
+      color: #4a4a4a;
+      font-size: clamp(1rem, 3vw, 2rem);
+      margin-left: 10px;
+      max-width: 60vw;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    & h1:hover,
+    & h2:hover {
+      opacity: 0.85;
+      transform: translateY(-3px);
+      cursor: default;
+    }
+
+    & #social-icons {
+      margin-top: 60px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-left: -5rem;
+
+      & a {
+        color: #111;
+        font-size: 40px;
+        transition: 0.3s;
+
+        &:hover {
+          color: #1da1f2;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 550px) {
+    #contact {
+      padding-top: 2rem;
+    }
+  }
+</style>
