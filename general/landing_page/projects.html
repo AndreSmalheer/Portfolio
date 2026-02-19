@@ -138,7 +138,9 @@
       background: #f2e2c1;
       border-radius: 4px;
       text-align: center;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
       overflow: hidden;
       box-shadow: 0 4px 6px rgba(205, 127, 50, 0.4);
 
@@ -152,6 +154,39 @@
       }
     }
   }
+
+  @media (max-width: 1300px) {
+    #projects {
+      & .project {
+        width: clamp(300px, 30vw, 400px);
+      }
+    }
+    #skills_container {
+        margin-top: clamp(50px, 10vh, 150px) !important;
+    }
+  }
+
+  @media (max-width: 950px){
+    #projects{
+        & .project{
+            width: clamp(300px, 30vw, 250px);
+        }
+    }
+
+    #projects {
+      padding-left: 0;
+      padding-top: 2rem;
+
+      & #project_grid {
+        flex-direction: column;
+        align-items: center;
+
+        & .project {
+          width: 65vw;
+        }
+      }
+    }
+ }
 
   @media (max-width: 550px) {
     #projects {

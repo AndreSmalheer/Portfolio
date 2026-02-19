@@ -65,6 +65,18 @@
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
   });
+
+  function resizeRendererToContainer() {
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
+    renderer.setSize(width, height);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+
+  }
+
+  resizeRendererToContainer();
 </script>
 
 <style>
