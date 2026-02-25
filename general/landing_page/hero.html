@@ -6,12 +6,21 @@
 <div class="threejs-container" id="hero-three-js" data-aos="zoom-in"></div>
 
 <!-- <img src="images/main_container_photo.png" data-aos="zoom-in" /> -->
+<script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/examples/": "https://unpkg.com/three@0.160.0/examples/"
+      }
+    }
+</script>
 
 <script type="module">
   import * as THREE from "https://unpkg.com/three@0.160.0/build/three.module.js";
+  import { GLTFLoader } from "https://unpkg.com/three@0.160.0/examples/jsm/loaders/GLTFLoader.js";
 
   const scene = new THREE.Scene();
-  // scene.background = new THREE.Color(0x1e1e1e);
+//   scene.background = new THREE.Color(0x1e1e1e);
 
   const camera = new THREE.PerspectiveCamera(
     35,
@@ -30,15 +39,50 @@
   renderer.setSize(width, height);
   container.appendChild(renderer.domElement);
 
-  // Cube
-  const geometry = new THREE.BoxGeometry();
-  const material = new THREE.MeshStandardMaterial({
-    color: 0xff7e5f,
-    roughness: 0.4,
-    metalness: 0.7,
-  });
-  const cube = new THREE.Mesh(geometry, material);
-  scene.add(cube);
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+  {
+      const w = 64, h = 32;
+      const data = new Uint8Array(w * h * 4);
+      for (let y = 0; y < h; y++) {
+        const t = y / (h - 1);
+        const r = Math.round(THREE.MathUtils.lerp(180, 240, t));
+        const g = Math.round(THREE.MathUtils.lerp(210, 240, t));
+        const b = Math.round(THREE.MathUtils.lerp(255, 240, t));
+        for (let x = 0; x < w; x++) {
+          const i = (y * w + x) * 4;
+          data[i] = r; data[i+1] = g; data[i+2] = b; data[i+3] = 255;
+        }
+      }
+      const envTex = new THREE.DataTexture(data, w, h);
+      envTex.mapping    = THREE.EquirectangularReflectionMapping;
+      envTex.colorSpace = THREE.SRGBColorSpace;
+      envTex.needsUpdate = true;
+      const pmrem = new THREE.PMREMGenerator(renderer);
+      pmrem.compileEquirectangularShader();
+      scene.environment = pmrem.fromEquirectangular(envTex).texture;
+      pmrem.dispose();
+      envTex.dispose();
+    }
+
+
+  // 3d model
+  const loader = new GLTFLoader();
+
+  loader.load(
+    "./model.glb",
+    (gltf) => {
+      const model = gltf.scene;
+      model.scale.set(1, 1, 1);
+      model.position.set(0, -0.9, 0);
+      scene.add(model);
+    },
+    undefined,
+    (err) => {
+      console.error("Error loading model:", err);
+    }
+  );
 
   // Lights
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
@@ -48,11 +92,8 @@
   directionalLight.position.set(5, 5, 5);
   scene.add(directionalLight);
 
-  // Animate cube
   function animate() {
     requestAnimationFrame(animate);
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
     renderer.render(scene, camera);
   }
   animate();
@@ -139,8 +180,8 @@
   }
 
   .threejs-container {
-    width: clamp(300px, 50vw, 550px);
-    height: clamp(300px, 50vw, 600px);
+    width: clamp(300px, 55vw, 650px) !important;
+    height: clamp(300px, 50vw, 650px) !important;
   }
 
   @media (max-width: 820px) {

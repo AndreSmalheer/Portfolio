@@ -1,4 +1,3 @@
-html,
 body {
   padding: 0;
   margin: 0;
@@ -9,6 +8,7 @@ body {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
+
 #porject-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -16,6 +16,7 @@ body {
   padding: 40px;
   grid-auto-rows: clamp(250px, 10vh, 300px);
 }
+
 .project {
   background-color: #f2e2c1;
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
@@ -23,12 +24,15 @@ body {
   flex-direction: column;
   align-items: center;
   border-radius: 12px;
+  overflow: hidden;
+  will-change: transform;
   &:hover {
     transform: scale(1.05);
     cursor: pointer;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
   }
 }
+
 .project-img {
   width: 100%;
   height: 80%;
@@ -40,44 +44,51 @@ body {
   border-bottom-right-radius: 0;
   transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .project-title {
   font-size: clamp(18px, 24px, 2rem);
   margin-top: auto;
   font-weight: 600;
-  transition: margin 0.35s cubic-bezier(0.4, 0, 0.2, 1), font-size 0.35s ease;
+  transition: margin 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .used-languages {
   opacity: 0;
-  font-size: 0;
-  transform: translateY(8px);
+  transform: translateY(8px) scale(0.7);
   margin-top: auto;
   margin-bottom: clamp(10px, 25px, 30px);
+  font-size: clamp(12px, 24px, 3rem);
   transition:
     opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1) 0.08s,
-    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) 0.08s,
-    font-size 0.3s ease 0.05s;
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) 0.08s;
   display: flex;
   gap: clamp(4px, 6px, 2rem);
+  will-change: transform, opacity;
 }
+
 .project:hover {
   & .project-img {
     height: 50%;
   }
+
   & .used-languages {
     opacity: 1;
-    transform: translate(0);
+    transform: translate(0) scale(1);
     font-size: clamp(12px, 24px, 3rem);
   }
+
   & .description {
     opacity: 1;
     transform: translateY(0);
     max-height: 200px;
   }
+
   & .project-title {
     margin-top: 5px;
     margin-bottom: 0;
   }
 }
+
 .description {
   padding: 0 20px;
   font-size: 0.95rem;
@@ -93,6 +104,7 @@ body {
     transform 0.35s cubic-bezier(0.4, 0, 0.2, 1) 0.06s,
     max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .fa-html5 { color: #E34F26; }
 .fa-css3-alt { color: #1572B6; }
 .fa-php { color: #777BB4; }
