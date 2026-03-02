@@ -108,22 +108,33 @@
     }
 
     & h1 {
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      margin-bottom: 2rem;
-      margin: 0 auto;
-      max-width: 80%;
-      margin-top: 5px;
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        margin: clamp(2rem, 4vh, 3rem) auto 2rem auto;
+        max-width: 80%;
+        padding: 0.4rem 1rem;
+        display: inline-block;
+        border-radius: 5px;
+        transition: all 0.2s ease;
+        background-color: #ffe3b2;
+        box-shadow: 0 4px 6px rgba(205, 127, 50, 0.4);
 
-      & a {
+    & a {
         text-decoration: none;
         color: inherit;
-      }
+        display: inline-block;
+        width: 100%;
+  }
 
-      &:hover {
-        opacity: 0.85;
-        transform: translateY(-1px);
+    &:hover {
+        transform: translateY(-2px);
+        background-color: #ffd18a;
         cursor: pointer;
-      }
+    }
+
+    &:active {
+        background-color: #ffbf61;
+        transform: translateY(0);
+    }
     }
 
     & #project_grid {
