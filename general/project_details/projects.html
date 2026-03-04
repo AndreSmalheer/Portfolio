@@ -9,7 +9,7 @@
     <link rel="stylesheet"href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 <body>
-    <div id="header" class="html-import" data-src="/components\header\header.html"></div>
+    <div id="header" class="html-import" data-src="https://102464.stu.sd-lab.nl/Portfolio/components/header/header.html"></div>
 
     <div id="project-card">
         <img id="photo" src="/images/projects/Ai-Vtuber.png">
@@ -188,7 +188,7 @@ const projects = {
     1: {
         title: "AI-Vtuber",
         description: "Een applicatie voor een AI-VTuber-personage op je beeldscherm.",
-        image: "/images/projects/Ai-Vtuber.png",
+        image: "https://102464.stu.sd-lab.nl/Portfolio/images/projects/Ai-Vtuber.png",
         skills: ["Html", "Css", "Javascript", "Python", "Electron", "Flask"],
         button_link: "https://github.com/AndreSmalheer/Ai-Vtuber",
         icons: [
@@ -198,13 +198,13 @@ const projects = {
             '<i class="devicon-python-plain" style="color:#306998;"></i>',
             '<i class="devicon-electron-original colored"></i>',
             '<i class="devicon-flask-original"></i>'
-    ]
+        ]
     },
 
     2: {
         title: "CookUp",
         description: "Een recepten website gemaakt door gen Z",
-        image: "/images/projects/CookUp.png",
+        image: "https://102464.stu.sd-lab.nl/Portfolio/images/projects/CookUp.png",
         skills: ["Html", "Css", "Javascript", "PHP"],
         button_link: "https://github.com/AdamSaber-mr/Recipe_Website",
         icons: [
@@ -212,13 +212,13 @@ const projects = {
             '<i class="fab fa-css3-alt" style="color:#264de4;"></i>',
             '<i class="fab fa-js-square" style="color:#f7df1e;"></i>',
             '<i class="fab fa-php" style="color:#777bb4;"></i>'
-       ]
+        ]
     },
 
     3: {
         title: "Crowdfunding",
         description:  "Een crowdfundingplatform voor fotografiestudenten van het Grafisch Lyceum",
-        image: "/images/projects/Crowdfunding.png",
+        image: "https://102464.stu.sd-lab.nl/Portfolio/images/projects/Crowdfunding.png",
         skills: ["html", "css", "javascript", "PHP"],
         button_link: "https://github.com/102464-AS/Crowdfunding-Beroeps",
         icons: [
@@ -232,19 +232,19 @@ const projects = {
     4: {
         title: "LevUp",
         description:  "Een recreatie van the System uit Solo Leveling",
-        image: "/images/projects/levUp.png",
+        image: "https://102464.stu.sd-lab.nl/Portfolio/images/projects/levUp.png",
         skills: ["html", "css", "javascript", "Python"],
         button_link: "https://github.com/AndreSmalheer/LevUp",
         icons: [
             '<i class="fab fa-html5" style="color:#e34c26;"></i>',
             '<i class="fab fa-css3-alt" style="color:#264de4;"></i>',
             '<i class="fab fa-js-square" style="color:#f7df1e;"></i>',
-            '<i class="devicon-python-plain" style="color:#306998;"></i>',
+            '<i class="devicon-python-plain" style="color:#306998;"></i>'
         ]
     }
 };
 
-        function loadProjectFromQuery() {
+function loadProjectFromQuery() {
     const params = getQueryParams();
     const projectId = params.project_id;
 
@@ -281,5 +281,5 @@ const projects = {
 
 window.addEventListener("DOMContentLoaded", loadProjectFromQuery);
 </script>
-<script type="module" src="/htmlImporter.js"></script>
+<script type="module" src="https://102464.stu.sd-lab.nl/Portfolio/htmlImporter.js"></script>
 </html>
