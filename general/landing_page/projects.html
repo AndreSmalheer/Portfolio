@@ -1,64 +1,137 @@
 <div id="project_grid">
-  <a href="../../project_info.html">
+
+  <a href="general/project_details/projects.html?project_id=2">
     <div class="project" data-aos="fade-up" data-aos-duration="1000">
+
       <img
-        src="images\projects\CookUp.png"
+        src="images/projects/CookUp.png"
         alt="Music App Preview"
         data-aos="zoom-in"
         data-aos-duration="800"
       />
+
       <h2 data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
         Cookup
       </h2>
+
+      <span
+        class="type"
+        data-aos="fade-right"
+        data-aos-duration="800"
+        data-aos-delay="300"
+      >
+        School Project
+      </span>
+
       <p data-aos="fade-left" data-aos-duration="800" data-aos-delay="400">
         Een recepten website gemaakt voor gen Z
       </p>
+
+      <div
+        class="skills"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-delay="500"
+      >
+        <i class="fab fa-html5"></i>
+        <i class="fab fa-css3-alt"></i>
+        <i class="fab fa-js-square" style="color:#2d2c25"></i>
+        <i class="fab fa-php"></i>
+      </div>
+
     </div>
   </a>
 
-  <a href="">
-    <div
-      class="project"
+
+  <a href="general/project_details/projects.html?project_id=1">
+    <div class="project"
       data-aos="fade-up"
       data-aos-duration="1000"
-      data-aos-delay="200"
-    >
+      data-aos-delay="200">
+
       <img
-        src="images\projects\Ai-Vtuber.png"
+        src="images/projects/Ai-Vtuber.png"
         alt="Mars UI Preview"
         data-aos="zoom-in"
         data-aos-duration="800"
       />
+
       <h2 data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
         Ai-Vtuber
       </h2>
+
+      <span
+        class="type"
+        data-aos="fade-right"
+        data-aos-duration="800"
+        data-aos-delay="300">
+        Persoonlijk project
+      </span>
+
       <p data-aos="fade-left" data-aos-duration="800" data-aos-delay="400">
         Een applicatie voor een AI-VTuber-personage op je beeldscherm.
       </p>
+
+      <div
+        class="skills"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-delay="500">
+        <i class="fab fa-html5"></i>
+        <i class="fab fa-css3-alt"></i>
+        <i class="devicon-python-plain" style="color: #306998;"></i>
+        <i class="fab fa-js-square" style="color:#2d2c25"></i>
+        <i class="devicon-electron-original colored"></i>
+        <i class="devicon-flask-original"></i>
+      </div>
+
     </div>
   </a>
 
-  <a href="">
-    <div
-      class="project"
+
+  <a href="general/project_details/projects.html?project_id=3">
+    <div class="project"
       data-aos="fade-up"
       data-aos-duration="1000"
-      data-aos-delay="400"
-    >
+      data-aos-delay="400">
+
       <img
-        src="images\projects\Crowdfunding.png"
+        src="images/projects/Crowdfunding.png"
         alt="Photo Video Tool"
         data-aos="zoom-in"
         data-aos-duration="800"
       />
+
       <h2 data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
         Crowdfunding
       </h2>
+
+      <span
+        class="type"
+        data-aos="fade-right"
+        data-aos-duration="800"
+        data-aos-delay="300">
+        School Project
+      </span>
+
       <p data-aos="fade-left" data-aos-duration="800" data-aos-delay="400">
         Een crowdfundingplatform voor fotografiestudenten van het Grafisch Lyceum.
       </p>
+
+      <div
+        class="skills"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-delay="500">
+        <i class="fab fa-html5"></i>
+        <i class="fab fa-css3-alt"></i>
+        <i class="fab fa-js-square" style="color:#2d2c25"></i>
+        <i class="fab fa-php"></i>
+      </div>
+
     </div>
   </a>
+
 </div>
 
 <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
@@ -67,6 +140,34 @@
 </h1>
 
 <style>
+  .skills{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    & i{
+        font-size: 5rem;
+        font-size: clamp(12px, 24px, 3rem);
+    }
+  }
+
+  .type{
+    color: #8ea8ce;
+    font-size: 1rem;
+    margin: 0;
+    margin-top: 2px;
+    margin-bottom: 4px;
+  }
+
+    .fa-html5 { color: #E34F26; }
+    .fa-css3-alt { color: #1572B6; }
+    .fa-php { color: #777BB4; }
+    .fa-electron { color: #47848F; }
+    .fa-python { color: #3776AB; }
+
+
   #projects {
     width: 100%;
     height: fit-content;

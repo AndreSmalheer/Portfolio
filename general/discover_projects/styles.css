@@ -89,6 +89,12 @@ body {
   }
 }
 
+.project-link{
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
 .description {
   padding: 0 20px;
   font-size: 0.95rem;
