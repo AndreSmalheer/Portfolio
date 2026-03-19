@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Header from "../../components/Header/Header";
-import Banner from "../sections/banner/banner";
+import Banner from  "./sections/banner/banner.jsx"
 import "./landingPage.css";
 
 const SECTIONS = ["banner", "projects"];
