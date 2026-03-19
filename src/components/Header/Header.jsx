@@ -1,31 +1,29 @@
 import "./Header.css";
 import { useEffect, useState } from "react";
 
-function Header() {
+function Header({ shrink }) {
   const [activeItem, setActiveItem] = useState("Home");
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-    useEffect(() => {
+  useEffect(() => {
     setMounted(true);
-
     let timeout;
     const onScroll = () => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
         setScrolled(window.scrollY > 20);
-        }, 50);
+      }, 50);
     };
-
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
-        window.removeEventListener("scroll", onScroll);
-        clearTimeout(timeout);
+      window.removeEventListener("scroll", onScroll);
+      clearTimeout(timeout);
     };
-    }, []);
+  }, []);
 
   return (
-    <div className={`header-wrapper ${scrolled ? "header-wrapper--scrolled" : ""}`}>
+    <div className={`header-wrapper ${scrolled || shrink ? "header-wrapper--scrolled" : ""}`}>
       <div className={`header ${mounted ? "header--mounted" : ""}`}>
         <div className="header-left">
           <div className="header-logo-wrapper">

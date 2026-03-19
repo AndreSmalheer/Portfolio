@@ -9,3 +9,7 @@ html, body {
     scroll-behavior: smooth;
     background-color: #F2E6D1;
 }
+
+* {
+  cursor: none !important;
+}

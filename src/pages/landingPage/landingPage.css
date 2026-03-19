@@ -1,0 +1,81 @@
+.landing-wrapper {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.sections-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.full-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+  will-change: transform;
+}
+
+.full-section.active {
+  transform: translateY(0);
+  z-index: 2;
+}
+
+.full-section.below {
+  transform: translateY(100%);
+  z-index: 1;
+}
+
+.full-section.above {
+  transform: translateY(-100%);
+  z-index: 1;
+}
+
+.full-section.blurring.active {
+  filter: blur(8px);
+  opacity: 0.6;
+}
+
+.section-dots {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 100;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(249, 107, 47, 0.3);
+  border: 2px solid rgba(249, 107, 47, 0.6);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+  padding: 0;
+}
+
+.dot:hover {
+  background-color: rgba(249, 107, 47, 0.6);
+  border-color: #F96B2F;
+}
+
+.dot-active {
+  background-color: #F96B2F;
+  border-color: #F96B2F;
+  transform: scale(1.3);
+}
+
+.dot:hover {
+  background-color: rgba(249, 107, 47, 0.6);
+  border-color: #F96B2F;
+}
