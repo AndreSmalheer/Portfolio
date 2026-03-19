@@ -1,0 +1,42 @@
+.banner-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.banner {
+  height: 80vh;
+  width: 100%;
+  background-image: url("/banner-background.svg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+}
+
+.down-arrow {
+  width: clamp(28px, 3.5vw, 44px);
+  height: clamp(28px, 3.5vw, 44px);
+  margin-top: clamp(12px, 2vh, 24px);
+  color: #474747;
+  animation: bounce 1.8s ease-in-out infinite;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.down-arrow svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(8px);
+        opacity: 0.8;
+  }
+}
