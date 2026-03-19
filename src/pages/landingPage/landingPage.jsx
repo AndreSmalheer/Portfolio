@@ -77,6 +77,7 @@ function LandingPage() {
       <Header
         shrink={currentSection !== 0}
         onNavClick={(item) => goToSection(NAV_TO_SECTION[item])}
+        currentSection={currentSection}
       />
       <div className={`sections-container ${fading ? "fading" : ""}`}>
         {SECTIONS.map((name, i) => (

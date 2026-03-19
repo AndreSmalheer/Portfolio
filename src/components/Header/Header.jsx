@@ -1,13 +1,21 @@
 import "./Header.css";
 import { useEffect, useState } from "react";
 
-function Header({ shrink, onNavClick }) {
+const SECTION_TO_NAV = ["Home", "Work", "About", "Contact"];
+
+function Header({ shrink, onNavClick, currentSection }) {
   const [activeItem, setActiveItem] = useState("Home");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (SECTION_TO_NAV[currentSection]) {
+      setActiveItem(SECTION_TO_NAV[currentSection]);
+    }
+  }, [currentSection]);
 
   const handleNav = (item) => {
     setActiveItem(item);
@@ -41,4 +49,3 @@ function Header({ shrink, onNavClick }) {
 }
 
 export default Header;
-    
