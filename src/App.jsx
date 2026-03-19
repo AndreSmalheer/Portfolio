@@ -1,14 +1,15 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
+import Header from './components/Header/Header'
+import LoadingScreen from './components/LoadingScreen/LoadingScreen'
+import landingPage from './pages/landingPage/landingPage'
 
 function App() {
+    const [isLoaded, setIsLoaded] = useState(false);
 
     return(
         <>
-        <h1>Hello World</h1>
+        {!isLoaded && <LoadingScreen NextPage={landingPage} />}
         </>
     )
 

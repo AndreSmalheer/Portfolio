@@ -1,0 +1,92 @@
+.loading-container {
+  position: fixed;
+  inset: 0;
+  color: #3a3a3a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  cursor: default;
+}
+
+.loading-text {
+  display: flex;
+  align-items: baseline;
+  animation: entrance 0.8s ease-out both;
+}
+
+.loading-container h1 {
+  font-size: clamp(32px, 6vw, 64px);
+  font-weight: 900;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.typewriter {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  border-right: 0.08em solid #f96b2f;
+  animation:
+    typing 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards,
+    caret 0.65s step-end 1.6s 2,
+    caret-hide 0s 2.6s forwards;
+}
+
+.typewriter .dot-char {
+  color: #f96b2f;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to   { width: calc(var(--chars) * 1ch); }
+}
+
+@keyframes caret {
+  50% { border-color: transparent; }
+}
+
+@keyframes caret-hide {
+  to { border-color: transparent; }
+}
+
+@keyframes entrance {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loading-container.fade-out {
+  animation: fadeOut 0.8s ease forwards;
+  pointer-events: none;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.next-page {
+  opacity: 0;
+  animation: pageIn 0.8s ease forwards;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
