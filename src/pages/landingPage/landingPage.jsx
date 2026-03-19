@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Header from "../../components/Header/Header";
 import Banner from  "./sections/banner/banner.jsx"
 import "./landingPage.css";
+import Projects from "./sections/projects/projects.jsx";
 
 const SECTIONS = ["banner", "projects"];
 
@@ -69,16 +70,7 @@ function LandingPage() {
                 }, 1000);
             }} />}
 
-            {name === "projects" && (
-              <section className="projects-section">
-                <h2 className="projects-title">Projects</h2>
-                <div className="projects-grid">
-                  <div className="project-card">Project One</div>
-                  <div className="project-card">Project Two</div>
-                  <div className="project-card">Project Three</div>
-                </div>
-              </section>
-            )}
+            {name === "projects" && (<Projects />)}
           </div>
         ))}
       </div>

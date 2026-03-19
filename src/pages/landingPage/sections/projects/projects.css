@@ -1,0 +1,11 @@
+.projects{
+    width: 80vw;
+    height: 100vh;
+    display: block;
+    margin: 0 auto;
+    background-image: url("/project-background.svg");
+    background-repeat: no-repeat;
+    background-repeat: no-repeat;
+    margin-top: 4vh;
+    background-size: cover;
+}
