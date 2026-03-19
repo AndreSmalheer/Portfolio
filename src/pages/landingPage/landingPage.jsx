@@ -1,16 +1,44 @@
 import { useEffect, useRef, useState } from "react";
 import Header from "../../components/Header/Header";
-import Banner from  "./sections/banner/banner.jsx"
-import "./landingPage.css";
+import Banner from "./sections/banner/banner.jsx";
 import Projects from "./sections/projects/projects.jsx";
+import "./landingPage.css";
 
 const SECTIONS = ["banner", "projects"];
+const NAV_TO_SECTION = {
+  Home: 0,
+  Work: 1,
+  About: 2,
+  Contact: 3,
+};
 
 function LandingPage() {
   const [currentSection, setCurrentSection] = useState(0);
+  const [fading, setFading] = useState(false);
   const containerRef = useRef(null);
   const isScrolling = useRef(false);
   const deltaAccumulator = useRef(0);
+  const isFading = useRef(false);
+
+  const goToSection = (index) => {
+    if (isFading.current || index === currentSection) return;
+    if (index < 0 || index >= SECTIONS.length) return;
+
+    isFading.current = true;
+    setFading(true);
+
+    setTimeout(() => {
+      setCurrentSection(index);
+      setFading(false);
+      isFading.current = false;
+    }, 200);
+
+    isScrolling.current = true;
+    setTimeout(() => {
+      isScrolling.current = false;
+      deltaAccumulator.current = 0;
+    }, 1000);
+  };
 
   useEffect(() => {
     const handleWheel = (e) => {
@@ -19,9 +47,7 @@ function LandingPage() {
         deltaAccumulator.current = 0;
         return;
       }
-
       deltaAccumulator.current += e.deltaY;
-
       if (Math.abs(deltaAccumulator.current) < 150) return;
 
       const direction = deltaAccumulator.current > 0 ? 1 : -1;
@@ -48,9 +74,11 @@ function LandingPage() {
 
   return (
     <div className="landing-wrapper" ref={containerRef}>
-      <Header shrink={currentSection !== 0} />
-
-      <div className="sections-container">
+      <Header
+        shrink={currentSection !== 0}
+        onNavClick={(item) => goToSection(NAV_TO_SECTION[item])}
+      />
+      <div className={`sections-container ${fading ? "fading" : ""}`}>
         {SECTIONS.map((name, i) => (
           <div
             key={name}
@@ -60,17 +88,10 @@ function LandingPage() {
               ${i > currentSection ? "below" : ""}
             `}
           >
-            {name === "banner" && <Banner onArrowClick={() => {
-                if (isScrolling.current) return;
-                isScrolling.current = true;
-                setCurrentSection(1);
-                setTimeout(() => {
-                isScrolling.current = false;
-                deltaAccumulator.current = 0;
-                }, 1000);
-            }} />}
-
-            {name === "projects" && (<Projects />)}
+            {name === "banner" && (
+              <Banner onArrowClick={() => goToSection(1)} />
+            )}
+            {name === "projects" && <Projects />}
           </div>
         ))}
       </div>
@@ -80,12 +101,7 @@ function LandingPage() {
           <button
             key={i}
             className={`dot ${i === currentSection ? "dot-active" : ""}`}
-            onClick={() => {
-              if (isScrolling.current) return;
-              isScrolling.current = true;
-              setCurrentSection(i);
-              setTimeout(() => (isScrolling.current = false), 1000);
-            }}
+            onClick={() => goToSection(i)}
           />
         ))}
       </div>

@@ -1,29 +1,21 @@
 import "./Header.css";
 import { useEffect, useState } from "react";
 
-function Header({ shrink }) {
+function Header({ shrink, onNavClick }) {
   const [activeItem, setActiveItem] = useState("Home");
   const [mounted, setMounted] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    let timeout;
-    const onScroll = () => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        setScrolled(window.scrollY > 20);
-      }, 50);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      clearTimeout(timeout);
-    };
   }, []);
 
+  const handleNav = (item) => {
+    setActiveItem(item);
+    if (onNavClick) onNavClick(item);
+  };
+
   return (
-    <div className={`header-wrapper ${scrolled || shrink ? "header-wrapper--scrolled" : ""}`}>
+    <div className={`header-wrapper ${shrink ? "header-wrapper--scrolled" : ""}`}>
       <div className={`header ${mounted ? "header--mounted" : ""}`}>
         <div className="header-left">
           <div className="header-logo-wrapper">
@@ -37,7 +29,7 @@ function Header({ shrink }) {
               key={item}
               className={`header-nav-item ${activeItem === item ? "active" : ""}`}
               style={{ "--i": i }}
-              onClick={() => setActiveItem(item)}
+              onClick={() => handleNav(item)}
             >
               <span className="nav-label">{item}</span>
             </li>
@@ -49,3 +41,4 @@ function Header({ shrink }) {
 }
 
 export default Header;
+    
