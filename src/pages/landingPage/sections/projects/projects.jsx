@@ -84,11 +84,16 @@ const GithubIcon = () => (
 
 const DRAG_THRESHOLD = 50;
 
-function Projects() {
+function Projects({ setCanScroll }) {
   const [active, setActive] = useState(0);
   const [contentVisible, setContentVisible] = useState(true);
   const [modalProject, setModalProject] = useState(null);
   const [modalOrigin, setModalOrigin] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  useEffect(() => {
+    setCanScroll(!modalOpen);
+  }, [modalOpen]);
   const animating = useRef(false);
   const animTimeout = useRef(null);
   const contentTimeout = useRef(null);
@@ -200,6 +205,7 @@ function Projects() {
                       const rect = e.currentTarget.getBoundingClientRect();
                       setModalOrigin(rect);
                       setModalProject(projects[i]);
+                      setModalOpen(true);
                     }
                   }}
                 >
@@ -267,7 +273,10 @@ function Projects() {
       <ProjectModal
         project={modalProject}
         originRect={modalOrigin}
-        onClose={() => { setModalProject(null); setModalOrigin(null); }}
+        onClose={() => { setModalProject(null); setModalOrigin(null); setModalOpen(false); }}
+        setCanScroll={setCanScroll}
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
       />
     </div>
   );

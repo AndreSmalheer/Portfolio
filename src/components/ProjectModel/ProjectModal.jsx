@@ -22,12 +22,13 @@ const CloseIcon = () => (
   </svg>
 );
 
-function ProjectModal({ project, originRect, onClose }) {
+function ProjectModal({ project, originRect, onClose, setCanScroll }) {
   const modalRef = useRef(null);
   const [phase, setPhase] = useState("from");
 
   useEffect(() => {
     if (!project) return;
+    setCanScroll(false);
     setPhase("from");
     const t = requestAnimationFrame(() => {
       requestAnimationFrame(() => setPhase("to"));
@@ -47,6 +48,7 @@ function ProjectModal({ project, originRect, onClose }) {
 
   const handleClose = () => {
     setPhase("from");
+    setCanScroll(true);
     setTimeout(onClose, 420);
   };
 
@@ -93,11 +95,18 @@ function ProjectModal({ project, originRect, onClose }) {
         role="dialog"
         aria-modal="true"
       >
-        <button className="modal__close" onClick={handleClose} aria-label="Close modal">
+        <button
+          className="modal__close"
+          onClick={handleClose}
+          aria-label="Close modal"
+        >
           <CloseIcon />
         </button>
 
-        <div className="modal__color-block" style={{ backgroundColor: project.color }} />
+        <div
+          className="modal__color-block"
+          style={{ backgroundColor: project.color }}
+        />
 
         <div className="modal__body">
           <h2 className="modal__title">{project.title}</h2>
@@ -105,18 +114,30 @@ function ProjectModal({ project, originRect, onClose }) {
 
           <div className="modal__tags">
             {project.tags.map((tag) => (
-              <span key={tag} className="modal__tag">{tag}</span>
+              <span key={tag} className="modal__tag">
+                {tag}
+              </span>
             ))}
           </div>
 
           <div className="modal__links">
             {project.live && (
-              <a href={project.live} target="_blank" rel="noopener noreferrer" className="modal__link modal__link--live">
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="modal__link modal__link--live"
+              >
                 <ExternalLink /> Live site
               </a>
             )}
             {project.github && (
-              <a href={project.github} target="_blank" rel="noopener noreferrer" className="modal__link modal__link--github">
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="modal__link modal__link--github"
+              >
                 <GithubIcon /> View code
               </a>
             )}

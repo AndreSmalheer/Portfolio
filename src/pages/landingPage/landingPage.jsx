@@ -17,6 +17,7 @@ const NAV_TO_SECTION = {
 function LandingPage() {
   const [currentSection, setCurrentSection] = useState(0);
   const [fading, setFading] = useState(false);
+  const [canScroll, setCanScroll] = useState(true);
   const containerRef = useRef(null);
   const isScrolling = useRef(false);
   const deltaAccumulator = useRef(0);
@@ -45,26 +46,23 @@ function LandingPage() {
   useEffect(() => {
     const handleWheel = (e) => {
       e.preventDefault();
+      if (!canScroll) return;
       if (isScrolling.current) {
         deltaAccumulator.current = 0;
         return;
       }
       deltaAccumulator.current += e.deltaY;
       if (Math.abs(deltaAccumulator.current) < 150) return;
-
       const direction = deltaAccumulator.current > 0 ? 1 : -1;
       deltaAccumulator.current = 0;
-
       setCurrentSection((prev) => {
         const next = prev + direction;
         if (next < 0 || next >= SECTIONS.length) return prev;
-
         isScrolling.current = true;
         setTimeout(() => {
           isScrolling.current = false;
           deltaAccumulator.current = 0;
         }, 1000);
-
         return next;
       });
     };
@@ -72,7 +70,7 @@ function LandingPage() {
     const el = containerRef.current;
     el.addEventListener("wheel", handleWheel, { passive: false });
     return () => el.removeEventListener("wheel", handleWheel);
-  }, []);
+  }, [canScroll]);
 
   return (
     <div className="landing-wrapper" ref={containerRef}>
@@ -94,7 +92,7 @@ function LandingPage() {
             {name === "banner" && (
               <Banner onArrowClick={() => goToSection(1)} />
             )}
-            {name === "projects" && <Projects />}
+            {name === "projects" && <Projects setCanScroll={setCanScroll} />}
 
             {name === "about" && <About />}
 
