@@ -23,6 +23,12 @@
     display: flex;
 }
 
+@media (min-width: 1600px) {
+    .projects-section{
+        background-image: none;
+    }
+}
+
 .project-card {
     width: 20px;
     height: 100%;

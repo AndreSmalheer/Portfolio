@@ -39,6 +39,24 @@
   }
   50% {
     transform: translateY(8px);
-        opacity: 0.8;
+    opacity: 0.8;
+  }
+}
+
+@media (min-width: 1600px) {
+  .banner {
+    background-image: none;
+  }
+
+  .down-arrow{
+    position: relative;
+    top: 60px;
+  }
+
+  .banner-wrapper {
+    background-image: url("/backgrounds/ultrawide/banner-background.svg");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
   }
 }
