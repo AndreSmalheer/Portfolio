@@ -90,7 +90,6 @@
 }
 
 .modal__title {
-  font-family: "DM Serif Display", "Georgia", serif;
   font-size: clamp(1.4rem, 2.2vw, 1.9rem);
   font-weight: 400;
   color: #1a2540;
@@ -100,7 +99,6 @@
 }
 
 .modal__desc {
-  font-family: "DM Sans", "Helvetica Neue", sans-serif;
   font-size: 0.88rem;
   color: #5a6a8a;
   line-height: 1.7;
@@ -114,7 +112,6 @@
 }
 
 .modal__tag {
-  font-family: "DM Mono", "Courier New", monospace;
   font-size: 0.69rem;
   letter-spacing: 0.03em;
   color: #4a6fa5;
@@ -135,7 +132,6 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: "DM Sans", "Helvetica Neue", sans-serif;
   font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.02em;
