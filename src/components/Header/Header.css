@@ -26,6 +26,8 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
   padding: clamp(16px, 2.5vw, 20px) clamp(16px, 4vw, 32px);
   padding-left: clamp(16px, 8vw, 180px);
   box-sizing: border-box;

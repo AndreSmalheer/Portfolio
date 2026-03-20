@@ -9,6 +9,8 @@
 .projects-section {
     width: 100%;
     height: 90%;
+    max-width: 1600px;
+    margin: 0 auto;
     background-image: url("/backgrounds/projects-background.svg");
     background-repeat: no-repeat;
     background-position: center;

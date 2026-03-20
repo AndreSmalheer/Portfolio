@@ -13,6 +13,8 @@
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 .down-arrow {
