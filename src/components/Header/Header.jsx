@@ -23,11 +23,17 @@ function Header({ shrink, onNavClick, currentSection }) {
   };
 
   return (
-    <div className={`header-wrapper ${shrink ? "header-wrapper--scrolled" : ""}`}>
+    <div
+      className={`header-wrapper ${shrink ? "header-wrapper--scrolled" : ""}`}
+    >
       <div className={`header ${mounted ? "header--mounted" : ""}`}>
         <div className="header-left">
           <div className="header-logo-wrapper">
-            <img className="header-logo" src="/icons/header-icon.png" alt="Logo" />
+            <img
+              className="header-logo"
+              src="/icons/header-icon.png"
+              alt="Logo"
+            />
           </div>
           <h1 className="header-title">André Smalheer</h1>
         </div>
@@ -43,6 +49,12 @@ function Header({ shrink, onNavClick, currentSection }) {
             </li>
           ))}
         </ul>
+
+        <div className="header-cv-container">
+          <img className="header-cv-logo" src="/icons/cv-icon.svg" alt="CV logo" />
+
+          <h1 className="header-cv-title">CV</h1>
+        </div>
       </div>
     </div>
   );
