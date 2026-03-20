@@ -2,9 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import Header from "../../components/Header/Header";
 import Banner from "./sections/banner/banner.jsx";
 import Projects from "./sections/projects/projects.jsx";
+import About from "./sections/about/about.jsx";
+import Contact from "./sections/contact/contact.jsx";
 import "./landingPage.css";
 
-const SECTIONS = ["banner", "projects"];
+const SECTIONS = ["banner", "projects", "about", "contact"];
 const NAV_TO_SECTION = {
   Home: 0,
   Work: 1,
@@ -93,6 +95,10 @@ function LandingPage() {
               <Banner onArrowClick={() => goToSection(1)} />
             )}
             {name === "projects" && <Projects />}
+
+            {name === "about" && <About />}
+
+            {name === "contact" && <Contact />}
           </div>
         ))}
       </div>
