@@ -25,7 +25,9 @@
 
 @media (min-width: 1600px) {
     .projects-page{
-        margin-top: 5vh;
+        margin: 0 auto;
+        width: 96vw;
+        margin-top: 3.5vh;
     }
 
     .projects-section{
