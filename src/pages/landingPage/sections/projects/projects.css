@@ -24,8 +24,20 @@
 }
 
 @media (min-width: 1600px) {
+    .projects-page{
+        margin-top: 5vh;
+    }
+
     .projects-section{
         background-image: none;
+    }
+
+    .projects-page{
+        background-image: url("/backgrounds/ultrawide/projects-background.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 90%;
     }
 }
 
