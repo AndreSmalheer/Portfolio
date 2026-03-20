@@ -4,7 +4,11 @@ function Projects() {
 
     return(
         <>
-        <div className="projects"></div>
+        <div className="projects">
+            <div className="project">
+                
+            </div>
+        </div>
         </>
     )
 }
