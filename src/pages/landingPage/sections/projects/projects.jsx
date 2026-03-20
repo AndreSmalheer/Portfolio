@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import "./projects.css";
+import ProjectModal from "../../../../components/ProjectModel/ProjectModal";
 
 const projects = [
   {
@@ -86,6 +87,8 @@ const DRAG_THRESHOLD = 50;
 function Projects() {
   const [active, setActive] = useState(0);
   const [contentVisible, setContentVisible] = useState(true);
+  const [modalProject, setModalProject] = useState(null);
+  const [modalOrigin, setModalOrigin] = useState(null);
   const animating = useRef(false);
   const animTimeout = useRef(null);
   const contentTimeout = useRef(null);
@@ -191,7 +194,14 @@ function Projects() {
                   key={p.id}
                   className="carousel__card"
                   style={getStyle(i)}
-                  onClick={() => offset !== 0 && navigate(offset > 0 ? 1 : -1)}
+                  onClick={(e) => {
+                    if (offset !== 0) navigate(offset > 0 ? 1 : -1);
+                    else {
+                      const rect = e.currentTarget.getBoundingClientRect();
+                      setModalOrigin(rect);
+                      setModalProject(projects[i]);
+                    }
+                  }}
                 >
                   <div className="carousel__card-color" style={{ backgroundColor: p.color }} />
                 </div>
@@ -253,6 +263,12 @@ function Projects() {
         </div>
 
       </div>
+
+      <ProjectModal
+        project={modalProject}
+        originRect={modalOrigin}
+        onClose={() => { setModalProject(null); setModalOrigin(null); }}
+      />
     </div>
   );
 }
