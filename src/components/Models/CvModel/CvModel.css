@@ -1,0 +1,10 @@
+.cv-modal__image {
+  width: 100%;
+  display: block;
+}
+
+.cv-modal__actions {
+  padding: 16px 32px 24px;
+  display: flex;
+  justify-content: center;
+}

@@ -1,11 +1,13 @@
 import "./Header.css";
 import { useEffect, useState } from "react";
+import CvModal from "../Models/CvModel/CvModel";
 
 const SECTION_TO_NAV = ["Home", "Work", "About", "Contact"];
 
 function Header({ shrink, onNavClick, currentSection }) {
   const [activeItem, setActiveItem] = useState("Home");
   const [mounted, setMounted] = useState(false);
+  const [cvOpen, setCvOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -23,6 +25,7 @@ function Header({ shrink, onNavClick, currentSection }) {
   };
 
   return (
+    <>
     <div
       className={`header-wrapper ${shrink ? "header-wrapper--scrolled" : ""}`}
     >
@@ -50,13 +53,19 @@ function Header({ shrink, onNavClick, currentSection }) {
           ))}
         </ul>
 
-        <div className="header-cv-container">
+        <div className="header-cv-container" onClick={() => setCvOpen(true)}>
           <img className="header-cv-logo" src="/icons/cv-icon.svg" alt="CV logo" />
 
           <h1 className="header-cv-title">CV</h1>
         </div>
       </div>
     </div>
+
+    <CvModal
+        open={cvOpen}
+        onClose={() => setCvOpen(false)}
+    />
+    </>
   );
 }
 

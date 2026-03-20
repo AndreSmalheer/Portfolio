@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import "./projects.css";
-import ProjectModal from "../../../../components/ProjectModel/ProjectModal";
+import ProjectModal from "../../../../components/Models/ProjectModel/ProjectModal";
 
 const projects = [
   {
