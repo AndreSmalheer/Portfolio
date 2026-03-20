@@ -9,7 +9,7 @@
 .banner {
   height: 80vh;
   width: 100%;
-  background-image: url("/banner-background.svg");
+  background-image: url("/backgrounds/banner-background.svg");
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;

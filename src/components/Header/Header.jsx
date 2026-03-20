@@ -27,9 +27,9 @@ function Header({ shrink, onNavClick, currentSection }) {
       <div className={`header ${mounted ? "header--mounted" : ""}`}>
         <div className="header-left">
           <div className="header-logo-wrapper">
-            <img className="header-logo" alt="Logo" />
+            <img className="header-logo" src="/icons/header-icon.png" alt="Logo" />
           </div>
-          <h1 className="header-title">Andre Smalheer</h1>
+          <h1 className="header-title">André Smalheer</h1>
         </div>
         <ul className="header-nav">
           {["Home", "Work", "About", "Contact"].map((item, i) => (
