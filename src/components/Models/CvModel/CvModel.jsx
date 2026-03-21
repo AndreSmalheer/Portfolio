@@ -1,9 +1,9 @@
 import Modal from "../BaseModel/baseModal";
 import "./CvModel.css"
 
-function CvModal({ open, onClose }) {
+function CvModal({ open, onClose, originRect }) {
   return (
-    <Modal open={open} onClose={onClose}>
+    <Modal open={open} onClose={onClose} originRect={originRect}>
       <div className="cv-modal__container">
         <img src="/CV.png" alt="CV" className="cv-modal__image" />
 

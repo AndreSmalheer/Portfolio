@@ -1,5 +1,6 @@
 import "./Header.css";
 import { useEffect, useState } from "react";
+import { useRef } from "react";
 import CvModal from "../Models/CvModel/CvModel";
 
 const SECTION_TO_NAV = ["Home", "Work", "About", "Contact"];
@@ -8,10 +9,20 @@ function Header({ shrink, onNavClick, currentSection }) {
   const [activeItem, setActiveItem] = useState("Home");
   const [mounted, setMounted] = useState(false);
   const [cvOpen, setCvOpen] = useState(false);
+  const cvRef = useRef(null);
+  const [originRect, setOriginRect] = useState(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const handleCvClick = () => {
+        if (cvRef.current) {
+            const rect = cvRef.current.getBoundingClientRect();
+            setOriginRect(rect);
+        }
+        setCvOpen(true);
+    };
 
   useEffect(() => {
     if (SECTION_TO_NAV[currentSection]) {
@@ -53,7 +64,7 @@ function Header({ shrink, onNavClick, currentSection }) {
           ))}
         </ul>
 
-        <div className="header-cv-container" onClick={() => setCvOpen(true)}>
+        <div className="header-cv-container"  ref={cvRef} onClick={handleCvClick}>
           <img className="header-cv-logo" src="/icons/cv-icon.svg" alt="CV logo" />
 
           <h1 className="header-cv-title">CV</h1>
@@ -64,6 +75,7 @@ function Header({ shrink, onNavClick, currentSection }) {
     <CvModal
         open={cvOpen}
         onClose={() => setCvOpen(false)}
+        originRect={originRect}
     />
     </>
   );
