@@ -75,11 +75,10 @@
   height: 90%;
   border-radius: 18px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(180, 200, 230, 0.3);
-  box-shadow:
-    0 2px 6px rgba(60, 90, 150, 0.04),
-    0 10px 36px rgba(60, 90, 150, 0.08);
+  background-image: url("/backgrounds/project-background.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   will-change: transform, opacity;
@@ -87,11 +86,6 @@
   transition:
     transform 0.55s cubic-bezier(0.4, 0, 0.2, 1),
     opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.carousel__card-color {
-  width: 100%;
-  flex: 0 0 55%;
 }
 
 .carousel__info {
