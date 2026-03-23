@@ -262,3 +262,49 @@
 .header-cv-container:hover .header-cv-title {
   color: #EBEBEB;
 }
+
+@media (max-width: 750px) {
+
+    .header{
+        padding-left: clamp(5px, 2vw, 10px);
+        padding-right: clamp(0px, 2vw, 10px);
+    }
+
+    .header-logo{
+        width: clamp(32px, 5vw, 36px);
+        height: clamp(32px, 5vw, 36px);
+    }
+
+    .header-cv-title{
+        display: none;
+    }
+
+    .header-wrapper.header-wrapper--scrolled .header.header--mounted {
+        padding-left: clamp(8px, 2vw, 10px);
+        padding-right: clamp(8px, 2vw, 10px);
+
+        .header-logo{
+            width: clamp(28px, 4vw, 32px);
+            height: clamp(28px, 4vw, 32px);
+        }
+    }
+}
+
+
+@media (max-width: 470px) {
+    .header-title{
+        display: none;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .header-logo-wrapper{
+        opacity: 0;
+    }
+
+   .header-cv-container{
+    display: none;
+   }
+
+}

@@ -11,10 +11,23 @@ function Header({ shrink, onNavClick, currentSection }) {
   const [cvOpen, setCvOpen] = useState(false);
   const cvRef = useRef(null);
   const [originRect, setOriginRect] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 750);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+        setIsMobile(window.innerWidth < 750);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+   }, []);
 
   const handleCvClick = () => {
         if (cvRef.current) {
@@ -37,46 +50,54 @@ function Header({ shrink, onNavClick, currentSection }) {
 
   return (
     <>
-    <div
-      className={`header-wrapper ${shrink ? "header-wrapper--scrolled" : ""}`}
-    >
-      <div className={`header ${mounted ? "header--mounted" : ""}`}>
-        <div className="header-left">
-          <div className="header-logo-wrapper">
-            <img
-              className="header-logo"
-              src="/icons/header-icon.png"
-              alt="Logo"
-            />
+      <div
+        className={`header-wrapper ${shrink ? "header-wrapper--scrolled" : ""}`}
+      >
+        <div className={`header ${mounted ? "header--mounted" : ""}`}>
+          <div className="header-left">
+            <div className="header-logo-wrapper">
+              <img
+                className="header-logo"
+                src="/icons/header-icon.png"
+                alt="Logo"
+              />
+            </div>
+            <h1 className="header-title">{`André ${isMobile ? "" : "Smalheer"}`}</h1>
           </div>
-          <h1 className="header-title">André Smalheer</h1>
-        </div>
-        <ul className="header-nav">
-          {["Home", "Work", "About", "Contact"].map((item, i) => (
-            <li
-              key={item}
-              className={`header-nav-item ${activeItem === item ? "active" : ""}`}
-              style={{ "--i": i }}
-              onClick={() => handleNav(item)}
-            >
-              <span className="nav-label">{item}</span>
-            </li>
-          ))}
-        </ul>
+          <ul className="header-nav">
+            {["Home", "Work", "About", "Contact"].map((item, i) => (
+              <li
+                key={item}
+                className={`header-nav-item ${activeItem === item ? "active" : ""}`}
+                style={{ "--i": i }}
+                onClick={() => handleNav(item)}
+              >
+                <span className="nav-label">{item}</span>
+              </li>
+            ))}
+          </ul>
 
-        <div className="header-cv-container"  ref={cvRef} onClick={handleCvClick}>
-          <img className="header-cv-logo" src="/icons/cv-icon.svg" alt="CV logo" />
+          <div
+            className="header-cv-container"
+            ref={cvRef}
+            onClick={handleCvClick}
+          >
+            <img
+              className="header-cv-logo"
+              src="/icons/cv-icon.svg"
+              alt="CV logo"
+            />
 
-          <h1 className="header-cv-title">CV</h1>
+            <h1 className="header-cv-title">CV</h1>
+          </div>
         </div>
       </div>
-    </div>
 
-    <CvModal
+      <CvModal
         open={cvOpen}
         onClose={() => setCvOpen(false)}
         originRect={originRect}
-    />
+      />
     </>
   );
 }
